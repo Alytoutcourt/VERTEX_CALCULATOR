@@ -1,4 +1,5 @@
 import ifcopenshell
+from ifcopenshell import *
 import multiprocessing
 
 def process_ifc_file(ifc_file_path):
