@@ -5,7 +5,7 @@ from ifc_processor import process_ifc_file
 def main():
     st.title("IFC Vertex Calculator")
     
-    uploaded_file = st.file_uploader("Upload an IFC file", type="ifc")
+    uploaded_file = st.file_uploader("upload le fichier IFC", type="ifc")
     if uploaded_file is not None:
         with NamedTemporaryFile(dir='.', suffix='.ifc') as f:
             f.write(uploaded_file.getbuffer())
