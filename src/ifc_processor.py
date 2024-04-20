@@ -2,11 +2,13 @@ import ifcopenshell
 
 def process_ifc_file(ifc_file_path):
     ifc_file = ifcopenshell.open(ifc_file_path)
+    settings = ifcopenshell.geom.settings()
+    # return {ifc_file.schema : "TEST"}
+    num_vertex_occurrences = {}
+    for product in ifc_file.by_type("IfcProduct"):
+        
+        new_shape = ifcopenshell.geom.create_shape(settings, product)
+        num_vertex = new_shape.geometry.verts
+        num_vertex_occurrences[product.Name] = num_vertex
     
-    return {ifc_file.schema : "TEST"}
-    # num_vertex_occurrences = {}
-    # for product in ifc_file.by_type("IfcProduct"):
-    #     num_vertex = len(product.Representation.Representations[0].Items[0].Coordinates)
-    #     num_vertex_occurrences[product.Name] = num_vertex
-    
-    # return num_vertex_occurrences
+    return num_vertex_occurrences
