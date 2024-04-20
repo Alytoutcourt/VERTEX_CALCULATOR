@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 from ifc_processor import process_ifc_file
 
