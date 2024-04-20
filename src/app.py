@@ -16,7 +16,7 @@ def main():
             # Vérifie si le fichier IFC existe à l'emplacement spécifié
             if os.path.exists("C:\Users\AliJA\Downloads\RIA-RIA.ifc"):
                 # Appelle la fonction pour traiter le fichier IFC et obtenir les occurrences de vertex
-                num_vertex_occurrences = process_ifc_file("C:\Users\AliJA\Downloads\RIA-RIA.ifc")
+                num_vertex_occurrences = process_ifc_file("C:\\Users\\AliJA\\Downloads\\RIA-RIA.ifc")
                 
                 # Affiche les résultats dans l'interface utilisateur
                 st.write("### Vertex Occurrences:")
