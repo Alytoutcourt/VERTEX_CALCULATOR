@@ -1,0 +1,9 @@
+# IFC Vertex Calculator
+
+Ce projet est une application Streamlit qui permet de calculer le nombre de vertex dans un fichier IFC et d'afficher ces informations dans un tableau.
+
+## Utilisation
+
+1. Exécutez l'application Streamlit :
+   ```bash
+   streamlit run src/app.py
