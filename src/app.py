@@ -1,3 +1,5 @@
+import os
+import tempfile
 import streamlit as st
 from ifc_vertex import process_ifc_file
 
@@ -6,7 +8,11 @@ def main():
     
     uploaded_file = st.file_uploader("Upload an IFC file", type="ifc")
     if uploaded_file is not None:
-        num_vertex_occurrences = process_ifc_file(uploaded_file)
+        temp_dir = tempfile.mkdtemp()
+        path = os.path.join(temp_dir, uploaded_file.name)
+        with open(path, "wb") as f:
+            f.write(uploaded_file.getvalue())
+        num_vertex_occurrences = process_ifc_file(path)
         
         st.write("### Vertex Occurrences:")
         st.write("| Occurrence | Number of Vertex |")
