@@ -1,4 +1,6 @@
 import ifcopenshell
+import ifcopenshell.geom
+import ifcopenshell.util.shape
 
 def process_ifc_file(ifc_file_path):
     ifc_file = ifcopenshell.open(ifc_file_path)
