@@ -1,7 +1,7 @@
 import ifcopenshell
 
-def process_ifc_file(uploaded_file):
-    ifc_file = ifcopenshell.open(uploaded_file.name)
+def process_ifc_file(uploaded_filepath):
+    ifc_file = ifcopenshell.open(uploaded_filepath)
     
     num_vertex_occurrences = {}
     for product in ifc_file.by_type("IfcProduct"):
