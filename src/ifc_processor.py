@@ -1,4 +1,5 @@
 import ifcopenshell
+import ifcopenshell.geom
 import multiprocessing
 
 def process_ifc_file(ifc_file_path):
