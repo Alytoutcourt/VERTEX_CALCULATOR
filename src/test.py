@@ -4,17 +4,16 @@ import ifcopenshell
 import ifcopenshell.geom
 import multiprocessing
 
-def colorize(val):
-    """
-    Fonction pour colorer les cellules du DataFrame en fonction de la valeur.
-    """
-    if val >= 100:  # Changer la valeur selon vos besoins
-        color = 'green'
-    elif val >= 50:  # Changer la valeur selon vos besoins
-        color = 'orange'
-    else:
-        color = 'red'
-    return 'color: %s' % color
+from app import colorize
+
+
+
+
+
+
+print(ifcopenshell.version)
+model = ifcopenshell.open("C:\\Users\\AliJA\\Downloads\\RIA-RIA.ifc")
+print(model.schema)
 
 def process_ifc_file(ifc_file_path):
     ifc_file = ifcopenshell.open(ifc_file_path)
@@ -26,7 +25,7 @@ def process_ifc_file(ifc_file_path):
             shape = iterator.get()
             if shape is None:
                 break
-            product_name = shape.product.Name
+            product_name = shape.__str__
             num_faces = len(shape.geometry.faces)
             num_edges = len(shape.geometry.edges)
             num_verts = len(shape.geometry.verts)
@@ -38,7 +37,8 @@ def process_ifc_file(ifc_file_path):
             if not iterator.next():
                 break
         return num_vertex_occurrences
-
+    
+print(process_ifc_file("C:\\Users\\AliJA\\Downloads\\RIA-RIA.ifc"))
 st.title("IFC Vertex Calculator")
 
 uploaded_file = st.file_uploader("Upload le fichier IFC", type="ifc")
